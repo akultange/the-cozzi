@@ -1,0 +1,142 @@
+{%- comment -%}
+  The Cozzi: homepage first scroll. Promise, proof photo, three claims, price, pack picker and Add to cart.
+  Add it to the homepage template and pick the product. Two variants expected, e.g. "1 pillow" and "2-pack".
+  Styles: assets/cozzi-main.css.liquid. Behaviour: assets/cozzi-main.js (Shopify AJAX cart + bag drawer).
+{%- endcomment -%}
+
+{%- liquid
+  assign product = section.settings.product
+  assign current = product.selected_or_first_available_variant
+  assign wide = section.settings.image_wide | default: product.featured_media.preview_image
+  assign tall = section.settings.image_tall | default: wide
+-%}
+
+{{ 'cozzi-main.css' | asset_url | stylesheet_tag }}
+<link rel="preload" href="{{ 'asap-cozzi.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
+
+<section class="hero" data-section-type="cozzi-main" aria-labelledby="promise-{{ section.id }}">
+  <div class="hero__media">
+    <div class="window">
+      <div class="window__pane">
+        {%- if wide != blank -%}
+          <picture>
+            <source
+              media="(min-width: 960px)"
+              srcset="{{ tall | image_url: width: 640 }} 640w, {{ tall | image_url: width: 960 }} 960w, {{ tall | image_url: width: 1280 }} 1280w"
+              sizes="(min-width: 1400px) 620px, 44vw"
+              width="1280" height="{{ 1280 | divided_by: tall.aspect_ratio | round }}">
+            {{ wide | image_url: width: 1080 | image_tag:
+              widths: '480, 768, 1080',
+              sizes: 'calc(100vw - 44px)',
+              loading: 'eager',
+              fetchpriority: 'high',
+              alt: wide.alt }}
+          </picture>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__copy">
+    <h1 id="promise-{{ section.id }}">{{ section.settings.promise }}</h1>
+    <div class="hero__sub">{{ section.settings.mechanism }}</div>
+
+    <ul class="claims" aria-label="Why it's different">
+      {%- for block in section.blocks -%}
+        <li class="claim" {{ block.shopify_attributes }}>{% render 'cozzi-icon', icon: block.settings.icon %}{{ block.settings.label }}</li>
+      {%- endfor -%}
+    </ul>
+
+    {%- form 'product', product, class: 'buy', id: 'buy', data-product-form: '' -%}
+      <div class="buy__row">
+        <p class="price" data-price>{{ current.price | money }}</p>
+        <fieldset class="pack">
+          <legend class="sr-only">How many</legend>
+          {%- for variant in product.variants -%}
+            <label>
+              <input type="radio" name="id" value="{{ variant.id }}" data-money="{{ variant.price | money }}"
+                {% if variant.id == current.id %}checked{% endif %}
+                {% unless variant.available %}disabled{% endunless %}>
+              <span>{{ variant.title }}</span>
+            </label>
+          {%- endfor -%}
+        </fieldset>
+      </div>
+      <input type="hidden" name="quantity" value="1">
+      <button class="btn-add" type="submit" name="add" {% unless product.available %}disabled{% endunless %}>
+        {%- if product.available -%}Add to cart{%- else -%}Sold out{%- endif -%}
+      </button>
+      <p class="assure">{{ section.settings.assurance }}</p>
+    {%- endform -%}
+  </div>
+</section>
+
+<div class="sticky-buy" aria-hidden="true">
+  {%- if product.featured_media -%}
+    {{ product.featured_media | image_url: width: 160 | image_tag: width: 40, height: 40, alt: '', loading: 'lazy' }}
+  {%- endif -%}
+  <div class="sticky-buy__label"><b>{{ product.title }}</b><span data-price>{{ current.price | money }}</span></div>
+  <button class="btn-add" type="button" data-add tabindex="-1">Add to cart</button>
+</div>
+
+<div class="scrim" hidden data-close-cart></div>
+<aside class="cart" id="cart" role="dialog" aria-modal="true" aria-labelledby="cart-title-{{ section.id }}" hidden>
+  <div class="cart__head">
+    <h2 id="cart-title-{{ section.id }}">Your bag</h2>
+    <button class="icon-btn" type="button" data-close-cart aria-label="Close bag">{% render 'cozzi-icon', icon: 'close' %}</button>
+  </div>
+  <div class="cart__body">
+    <ul class="cart__items"></ul>
+    <p class="cart__empty" hidden>Your bag is empty.</p>
+    <div class="cart__foot">
+      <p class="cart__total"><span>Subtotal</span><span data-subtotal></span></p>
+      <a class="btn-add" href="{{ routes.root_url }}checkout">Checkout</a>
+      <p class="cart__note">Shipping and taxes are added at checkout.</p>
+    </div>
+  </div>
+</aside>
+
+<script src="{{ 'cozzi-main.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Cozzi first scroll",
+  "tag": "div",
+  "class": "cozzi-main",
+  "limit": 1,
+  "settings": [
+    { "type": "product", "id": "product", "label": "Product" },
+    { "type": "image_picker", "id": "image_wide", "label": "Hero photo for phones", "info": "3:2, side profile, head upright" },
+    { "type": "image_picker", "id": "image_tall", "label": "Hero photo for desktop", "info": "4:5 crop of the same shot" },
+    { "type": "text", "id": "promise", "label": "Promise", "default": "Your head stays up. You stay asleep." },
+    { "type": "richtext", "id": "mechanism", "label": "What stops the drop", "default": "<p>A travel neck pillow with [what stops the drop], so you don't jolt awake mid-flight.</p>" },
+    { "type": "text", "id": "assurance", "label": "Trial and shipping line", "default": "Try it for [N] nights. Free size swaps. Ships in [N] days." }
+  ],
+  "blocks": [
+    {
+      "type": "claim",
+      "name": "Claim",
+      "limit": 3,
+      "settings": [
+        { "type": "select", "id": "icon", "label": "Icon", "default": "fit",
+          "options": [
+            { "value": "fit", "label": "Fit" },
+            { "value": "put", "label": "Stays put" },
+            { "value": "cool", "label": "Cool" }
+          ] },
+        { "type": "text", "id": "label", "label": "Label", "default": "Fits your neck" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cozzi first scroll",
+      "blocks": [
+        { "type": "claim", "settings": { "icon": "fit", "label": "Fits your neck" } },
+        { "type": "claim", "settings": { "icon": "put", "label": "Stays put" } },
+        { "type": "claim", "settings": { "icon": "cool", "label": "Stays cool" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
