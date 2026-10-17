@@ -1,0 +1,41 @@
+name: Fetch stand-in source images
+
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: "Space-separated name=url pairs"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download images
+        env:
+          URLS: ${{ inputs.urls }}
+        run: |
+          mkdir -p incoming
+          for pair in $URLS; do
+            name="${pair%%=*}"
+            url="${pair#*=}"
+            curl -fsSL "$url" -o "incoming/$name"
+          done
+          ls -la incoming
+
+      - name: Commit to the incoming branch
+        env:
+          TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          cd incoming
+          git init -q
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git checkout -q -b incoming
+          git add .
+          git commit -q -m "Stand-in source images"
+          git push -f "https://x-access-token:${TOKEN}@github.com/${REPO}.git" incoming

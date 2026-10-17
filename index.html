@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Cozzi, travel neck pillow (spec concept)</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="description" content="Spec concept by Luka Skhiladze for The Cozzi homepage. Not a live store.">
+<meta name="theme-color" content="#191C33">
+<link rel="preload" href="assets/asap-cozzi.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" type="image/avif" media="(max-width: 959px)" imagesrcset="assets/img/hero-wide-480.avif 480w, assets/img/hero-wide-768.avif 768w, assets/img/hero-wide-1080.avif 1080w" imagesizes="calc(100vw - 44px)" fetchpriority="high">
+<link rel="preload" as="image" type="image/avif" media="(min-width: 960px)" imagesrcset="assets/img/hero-tall-640.avif 640w, assets/img/hero-tall-960.avif 960w, assets/img/hero-tall-1280.avif 1280w" imagesizes="(min-width: 1400px) 620px, 44vw" fetchpriority="high">
+<style>
+@font-face{font-family:"Asap Cozzi";src:url(assets/asap-cozzi.woff2) format("woff2");font-weight:400 720;font-stretch:86% 100%;font-display:swap}
+@font-face{font-family:"Asap Fallback";src:local("Arial"),local("Liberation Sans"),local("Helvetica");size-adjust:98.15%;ascent-override:95.16%;descent-override:21.6%;line-gap-override:0%}
+:root{
+  --night:#191C33;--dusk:#232750;--moon:#ECEAF6;--haze:#A9ABC9;--lamp:#FFC86B;--lamp-hi:#FFD691;
+  --sky:#E8EEF7;--paper:#F6F8FB;--ink:#191C33;--slate:#545A78;--rule:#CBD3E3;
+  --pillow:#D6D0EC;--seat:#2B3064;--body:#3A4079;--skin:#4A5192;
+  --slot:var(--lamp);
+  --font:"Asap Cozzi","Asap Fallback",Arial,sans-serif;
+  --g:16px;--r-ui:14px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;font-family:var(--font);font-size:16px;line-height:1.5;color:var(--moon);background:var(--night);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+html.lock,html.lock body{overflow:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit}
+:focus-visible{outline:2px solid var(--lamp);outline-offset:3px;border-radius:6px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* Spec mark: always visible, not part of the store */
+.specbar{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:30px;padding:5px var(--g);background:#0E1024;color:#C7C8DE;font-size:12.5px;line-height:1.3}
+.specbar b{color:var(--lamp);font-weight:700;letter-spacing:.02em}
+.specbar a{color:var(--moon);text-underline-offset:3px;white-space:nowrap}
+
+/* Product facts only the client knows */
+.slot{text-decoration:underline dashed var(--slot);text-decoration-thickness:1.5px;text-underline-offset:4px;text-decoration-skip-ink:none}
+
+.site-header{display:flex;align-items:center;justify-content:space-between;height:52px;padding:0 calc(var(--g) - 4px) 0 var(--g)}
+.wordmark{font-size:21px;font-weight:700;font-stretch:90%;letter-spacing:-.015em;text-decoration:none;color:#F4F2FB}
+.bag{position:relative;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;border-radius:12px;background:none;color:var(--moon);cursor:pointer}
+.bag svg{width:24px;height:24px}
+.bag-count{position:absolute;top:5px;right:3px;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--lamp);color:#1B1A2C;font-size:11px;font-weight:700;line-height:18px;text-align:center}
+.bag-count[hidden]{display:none}
+
+/* First scroll */
+.hero{padding:2px var(--g) 36px}
+.window{padding:6px;border-radius:38px;background:linear-gradient(180deg,#2E3367,#242851);box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 18px 40px -24px rgba(0,0,0,.6)}
+.window__pane{position:relative;overflow:hidden;border-radius:32px;aspect-ratio:1080/672;background:#2A2E57}
+.window__pane img{width:100%;height:100%;object-fit:cover;object-position:var(--focus,50% 40%)}
+.standin{position:absolute;left:14px;bottom:12px;padding:3px 8px;border-radius:7px;background:rgba(14,16,36,.74);color:var(--moon);font-size:11.5px;line-height:1.35}
+.hero__copy{padding-top:14px}
+h1{margin:0;font-size:32px;line-height:1.04;font-weight:700;font-stretch:88%;letter-spacing:-.014em;color:#F6F4FC;text-wrap:balance}
+.hero__sub{margin:8px 0 0;max-width:36ch;font-size:15.5px;line-height:1.42;color:var(--haze)}
+.claims{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0;padding:0;list-style:none}
+.claim{display:flex;align-items:center;gap:5px;padding:5px 9px 5px 7px;border:1.5px dashed rgba(255,200,107,.6);border-radius:10px;font-size:12.5px;font-weight:600;line-height:1.2;color:var(--moon);white-space:nowrap}
+.claim svg{width:16px;height:16px;flex:none;color:var(--lamp)}
+.buy{margin-top:14px}
+.buy__row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.price{margin:0;font-size:22px;font-weight:700;line-height:1.1;color:#F6F4FC}
+.pack{display:flex;gap:3px;margin:0;padding:3px;border:0;border-radius:12px;background:rgba(236,234,246,.09)}
+.pack label{position:relative;display:block}
+.pack input{position:absolute;inset:0;margin:0;opacity:0;cursor:pointer}
+.pack span{display:block;padding:8px 12px;border-radius:9px;font-size:14px;font-weight:600;line-height:1.2;color:var(--haze)}
+.pack input:checked+span{background:var(--moon);color:var(--night)}
+.pack input:focus-visible+span{outline:2px solid var(--lamp);outline-offset:2px}
+.btn-add{display:flex;align-items:center;justify-content:center;width:100%;height:52px;margin:10px 0 0;padding:0 20px;border:0;border-radius:var(--r-ui);background:var(--lamp);color:#1B1A2C;font-size:17px;font-weight:700;letter-spacing:.005em;text-decoration:none;cursor:pointer;transition:background-color .15s}
+.btn-add:hover{background:var(--lamp-hi)}
+.assure{margin:8px 0 0;font-size:13px;line-height:1.4;color:var(--haze);text-align:center}
+
+/* Why heads drop */
+.drop{background:var(--dusk);padding:44px var(--g) 40px}
+.drop h2,.rest h2,.trial h2{margin:0;font-size:26px;line-height:1.1;font-weight:700;font-stretch:90%;letter-spacing:-.01em;text-wrap:balance}
+.drop p{margin:12px 0 0;max-width:46ch;color:#C9CAE2;font-size:16px}
+.drop__figs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px 0 0}
+.fig{margin:0}
+.fig svg{width:100%;height:auto;border-radius:22px;background:#1D2145}
+.fig figcaption{margin-top:10px;font-size:13.5px;line-height:1.35;color:var(--haze)}
+.fig figcaption b{display:block;color:var(--moon);font-size:14.5px}
+.head{transform-box:view-box;transform-origin:98px 146px}
+.fig--drop .head{animation:drop 5.2s cubic-bezier(.45,0,.55,1) infinite}
+.fig--hold .head{animation:hold 5.2s ease-in-out infinite}
+.jolt{opacity:0;animation:jolt 5.2s linear infinite}
+@keyframes drop{0%,16%{transform:rotate(0)}52%{transform:rotate(25deg)}60%{transform:rotate(28deg)}63%{transform:rotate(-4deg)}68%,100%{transform:rotate(0)}}
+@keyframes hold{0%,16%{transform:rotate(0)}52%,62%{transform:rotate(5deg)}80%,100%{transform:rotate(0)}}
+@keyframes jolt{0%,61%{opacity:0}63%{opacity:1}72%,100%{opacity:0}}
+
+/* Night turns to morning */
+.horizon{height:150px;background:linear-gradient(180deg,var(--dusk) 0%,#3C3F73 38%,#9C8FB8 62%,#F3D3B0 78%,var(--sky) 100%)}
+
+.rest{background:var(--sky);color:var(--ink);padding:16px var(--g) 44px}
+.rest__grid{display:grid;gap:26px;margin-top:24px}
+.point svg{width:28px;height:28px;color:#3B4178}
+.point h3{margin:10px 0 0;font-size:19px;line-height:1.2;font-weight:700}
+.point p{margin:6px 0 0;max-width:42ch;color:var(--slate)}
+.rest .slot,.trial .slot,.notes .slot{--slot:#A06C0C}
+
+.trial{background:var(--paper);color:var(--ink);padding:44px var(--g)}
+.trial p{margin:12px 0 0;max-width:48ch;color:var(--slate);font-size:17px}
+.trial .btn-add{max-width:360px;margin-top:22px}
+
+/* Notes for the client: clearly outside the store */
+.notes{background:#fff;color:var(--ink);padding:48px var(--g) 56px;border-top:1px solid var(--rule)}
+.notes__inner{max-width:1080px;margin:0 auto}
+.notes h2{margin:0;font-size:28px;line-height:1.1;font-weight:700;font-stretch:90%}
+.notes__lede{margin:10px 0 0;max-width:60ch;color:var(--slate);font-size:17px}
+.notes__grid{display:grid;gap:36px;margin-top:32px}
+.notes h3{margin:0 0 10px;font-size:18px;font-weight:700}
+.notes p,.notes li{color:#3D4260;font-size:15.5px}
+.notes ul{margin:0;padding-left:18px}
+.notes li{margin:4px 0}
+.pains{width:100%;border-collapse:collapse;font-size:15px}
+.pains th,.pains td{padding:7px 0;border-bottom:1px solid #E3E7F0;text-align:left;font-weight:400}
+.pains th{font-size:13px;color:var(--slate)}
+.pains td:last-child,.pains th:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.pains .bar{display:block;height:4px;margin-top:5px;border-radius:2px;background:#3B4178;width:calc(var(--v) * 4)}
+.src{margin-top:10px;font-size:13px!important;color:var(--slate)!important}
+.shots{list-style:none;padding:0!important}
+.shots li{display:grid;grid-template-columns:88px 1fr;gap:12px;align-items:start;margin:0 0 14px}
+.shots .thumb{width:88px;height:66px;border-radius:12px;object-fit:cover;background:#E3E7F0}
+.shots .thumb--empty{display:grid;place-items:center;color:var(--slate);font-size:12px;border:1.5px dashed #C2CADA;background:none}
+.shots b{display:block;color:var(--ink)}
+.speed{display:flex;gap:28px;flex-wrap:wrap;margin:6px 0 0}
+.speed div{min-width:90px}
+.speed strong{display:block;font-size:30px;line-height:1;font-weight:700;font-variant-numeric:tabular-nums}
+.speed span{font-size:13px;color:var(--slate)}
+
+.site-footer{background:#fff;color:var(--slate);padding:0 var(--g) 96px;font-size:13px}
+.site-footer p{max-width:1080px;margin:0 auto;padding-top:20px;border-top:1px solid #E3E7F0}
+
+/* Sticky buy bar (mobile) */
+.sticky-buy{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;align-items:center;gap:12px;padding:10px var(--g) calc(10px + env(safe-area-inset-bottom));background:rgba(25,28,51,.96);border-top:1px solid rgba(236,234,246,.12);transform:translateY(110%);transition:transform .25s ease;backdrop-filter:blur(8px)}
+.sticky-buy.is-on{transform:none}
+.sticky-buy img{width:40px;height:40px;border-radius:10px;object-fit:cover}
+.sticky-buy__label{flex:1;min-width:0;font-size:13.5px;line-height:1.25;color:var(--haze)}
+.sticky-buy__label b{display:block;color:var(--moon);font-size:14.5px}
+.sticky-buy .btn-add{width:auto;height:44px;margin:0;font-size:15.5px}
+
+/* Bag drawer */
+.scrim{position:fixed;inset:0;z-index:30;background:rgba(10,11,25,.55);opacity:0;transition:opacity .2s}
+.scrim.is-open{opacity:1}
+.cart{position:fixed;top:0;right:0;bottom:0;z-index:31;display:flex;flex-direction:column;width:min(420px,100vw);background:#fff;color:var(--ink);transform:translateX(100%);transition:transform .25s ease;box-shadow:-20px 0 50px -30px rgba(0,0,0,.5)}
+.cart.is-open{transform:none}
+.cart__head{display:flex;align-items:center;justify-content:space-between;padding:14px 12px 14px 20px;border-bottom:1px solid #E6E9F1}
+.cart__head h2{margin:0;font-size:19px;font-weight:700}
+.icon-btn{display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;border-radius:12px;background:none;color:inherit;cursor:pointer}
+.icon-btn svg{width:22px;height:22px}
+.cart__body{display:flex;flex:1;flex-direction:column;min-height:0}
+.cart__items{flex:1;margin:0;padding:8px 20px;list-style:none;overflow:auto}
+.line{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid #EEF1F6}
+.line img{width:64px;height:64px;border-radius:12px;object-fit:cover}
+.line__name{font-weight:600;line-height:1.25}
+.line__meta{font-size:13.5px;color:var(--slate)}
+.qty{display:flex;align-items:center;gap:2px;margin-top:6px}
+.qty button{width:32px;height:32px;border:1px solid #D9DEEA;border-radius:9px;background:#fff;color:var(--ink);font-size:17px;line-height:1;cursor:pointer}
+.qty output{min-width:28px;text-align:center;font-weight:600;font-variant-numeric:tabular-nums}
+.line__price{font-size:14.5px;font-weight:600}
+.cart__empty{margin:28px 20px;color:var(--slate)}
+.cart__foot{padding:16px 20px calc(18px + env(safe-area-inset-bottom));border-top:1px solid #E6E9F1}
+.cart__total{display:flex;justify-content:space-between;margin:0;font-size:16px;font-weight:600}
+.cart__foot .btn-add{margin-top:12px;background:var(--night);color:#fff}
+.cart__foot .btn-add:hover{background:#262A4A}
+.cart__note{margin:8px 0 0;font-size:13px;color:var(--slate);text-align:center}
+.cart__end{padding:28px 20px}
+.cart__end h3{margin:0;font-size:22px;line-height:1.15}
+.cart__end p{margin:12px 0 0;color:#3D4260}
+.link-btn{margin-top:18px;padding:0;border:0;background:none;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.cart .slot{--slot:#A06C0C}
+
+@media (min-width:700px){
+  .drop__figs{max-width:620px}
+  .rest__grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+  .notes__grid{grid-template-columns:1fr 1fr}
+}
+@media (min-width:960px){
+  :root{--g:40px}
+  .specbar{justify-content:center;gap:20px;font-size:13px}
+  .site-header{height:64px;max-width:1320px;margin:0 auto}
+  .wordmark{font-size:24px}
+  .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:64px;align-items:center;max-width:1320px;margin:0 auto;padding:4px var(--g) 72px}
+  .window{padding:8px;border-radius:calc(30% + 8px) / calc(24% + 8px)}
+  .window__pane{aspect-ratio:4/5;max-height:calc(100vh - 140px);margin:0 auto;border-radius:30% / 24%}
+  .standin{left:50%;transform:translateX(-50%);bottom:26px}
+  .hero__copy{padding:0;max-width:520px}
+  h1{font-size:64px;line-height:.98}
+  .hero__sub{margin-top:18px;font-size:19.5px;line-height:1.45}
+  .claims{gap:10px;margin-top:22px}
+  .claim{padding:8px 12px 8px 10px;font-size:15px}
+  .claim svg{width:18px;height:18px}
+  .buy{margin-top:30px;max-width:460px}
+  .price{font-size:28px}
+  .btn-add{height:56px;margin-top:14px;font-size:18px}
+  .assure{text-align:left;font-size:14px}
+  .drop{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1fr);gap:64px;align-items:center;padding:88px max(var(--g),calc((100vw - 1240px)/2)) 80px}
+  .drop h2,.rest h2,.trial h2{font-size:40px}
+  .drop p{font-size:18px}
+  .drop__figs{margin:0;gap:20px}
+  .rest,.trial{padding-left:max(var(--g),calc((100vw - 1240px)/2));padding-right:max(var(--g),calc((100vw - 1240px)/2))}
+  .rest{padding-top:24px;padding-bottom:80px}
+  .trial{padding-top:72px;padding-bottom:80px}
+  .trial p{font-size:19px}
+  .notes{padding:72px var(--g) 80px}
+  .notes h2{font-size:36px}
+  .sticky-buy{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .fig--drop .head{animation:none;transform:rotate(25deg)}
+  .fig--hold .head,.jolt{animation:none}
+  .sticky-buy,.cart,.scrim{transition:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-fit" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 5.5v5a4.5 4.5 0 0 0 9 0v-5"/><path d="M2.5 12h3M18.5 12h3M4 10.3 2.3 12 4 13.7M20 10.3 21.7 12 20 13.7"/></g></symbol>
+  <symbol id="i-put" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s6.5-5.6 6.5-11a6.5 6.5 0 0 0-13 0c0 5.4 6.5 11 6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+  <symbol id="i-cool" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 8c2.2-1.6 4.3-1.6 6.5 0s4.3 1.6 6.5 0 3.6-1.4 5-1M3 12.5c2.2-1.6 4.3-1.6 6.5 0s4.3 1.6 6.5 0 3.6-1.4 5-1M3 17c2.2-1.6 4.3-1.6 6.5 0s4.3 1.6 6.5 0 3.6-1.4 5-1"/></g></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M5.5 8.5h13l-1 11.5h-11z"/><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" stroke-linecap="round"/></g></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+</svg>
+
+<div class="specbar" role="note"><span><b>SPEC</b> concept by Luka Skhiladze. Not a live store. Dashed lines mark your product facts.</span><a href="#notes">Notes</a></div>
+
+<header class="site-header">
+  <a class="wordmark" href="#top">The Cozzi</a>
+  <button class="bag" type="button" data-open-cart aria-label="Open bag, 0 items"><svg aria-hidden="true"><use href="#i-bag"/></svg><span class="bag-count" hidden>0</span></button>
+</header>
+
+<main id="top">
+  <!-- Shopify: sections/main-cozzi.liquid (main product section on the homepage template) -->
+  <section class="hero" data-section-type="cozzi-main" aria-labelledby="promise">
+    <div class="hero__media">
+      <div class="window">
+        <div class="window__pane">
+          <picture>
+            <source media="(min-width: 960px)" type="image/avif" srcset="assets/img/hero-tall-640.avif 640w, assets/img/hero-tall-960.avif 960w, assets/img/hero-tall-1280.avif 1280w" sizes="(min-width: 1400px) 620px, 44vw">
+            <source media="(min-width: 960px)" type="image/webp" srcset="assets/img/hero-tall-640.webp 640w, assets/img/hero-tall-960.webp 960w, assets/img/hero-tall-1280.webp 1280w" sizes="(min-width: 1400px) 620px, 44vw">
+            <source type="image/avif" srcset="assets/img/hero-wide-480.avif 480w, assets/img/hero-wide-768.avif 768w, assets/img/hero-wide-1080.avif 1080w" sizes="calc(100vw - 44px)">
+            <img src="assets/img/hero-wide-768.webp" srcset="assets/img/hero-wide-480.webp 480w, assets/img/hero-wide-768.webp 768w, assets/img/hero-wide-1080.webp 1080w" sizes="calc(100vw - 44px)" width="1080" height="672" alt="Stand-in photo: a traveler asleep upright in a window seat at night, wearing a travel neck pillow" fetchpriority="high">
+          </picture>
+          <span class="standin">Stand-in photo for shot list: Hero</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__copy">
+      <h1 id="promise">Your head stays up. You stay asleep.</h1>
+      <p class="hero__sub">A travel neck pillow with <span class="slot" title="Your spec: what physically stops the head dropping forward">what stops the drop</span>, so you don't jolt awake mid-flight.</p>
+      <ul class="claims" aria-label="Why it's different">
+        <li class="claim"><svg aria-hidden="true"><use href="#i-fit"/></svg>Fits your neck</li>
+        <li class="claim"><svg aria-hidden="true"><use href="#i-put"/></svg>Stays put</li>
+        <li class="claim"><svg aria-hidden="true"><use href="#i-cool"/></svg>Stays cool</li>
+      </ul>
+
+      <!-- Shopify: {% form 'product', product %} with name="id" = variant id -->
+      <form class="buy" id="buy" action="/cart/add" method="post" data-product-form>
+        <div class="buy__row">
+          <p class="price"><span class="slot" data-price title="Your spec: price">Your price</span></p>
+          <fieldset class="pack">
+            <legend class="sr-only">How many</legend>
+            <label><input type="radio" name="pack" value="single" checked><span>1 pillow</span></label>
+            <label><input type="radio" name="pack" value="pair"><span>2-pack</span></label>
+          </fieldset>
+        </div>
+        <input type="hidden" name="quantity" value="1">
+        <button class="btn-add" type="submit">Add to cart</button>
+        <p class="assure">Try it for <span class="slot">N nights</span>. <span class="slot">Free size swaps</span>. Ships in <span class="slot">N days</span>.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="drop" aria-labelledby="drop-title">
+    <div class="drop__text">
+      <h2 id="drop-title">Why you wake up with a jolt</h2>
+      <p>Most travel pillows cushion the sides of your head. Nothing stops it falling forward, so your chin drops and you wake up.</p>
+      <p>The Cozzi adds <span class="slot">what stops the drop</span>, so your head stays where you left it.</p>
+    </div>
+    <div class="drop__figs">
+      <figure class="fig fig--drop">
+        <svg viewBox="0 0 220 230" role="img" aria-label="Side view: with an ordinary neck pillow the head tips forward until the chin drops, then jerks back up">
+          <rect x="30" y="18" width="40" height="212" rx="16" fill="#2B3064"/>
+          <path d="M68 150c10-12 52-14 72 2l12 78H68z" fill="#3A4079"/>
+          <g class="head">
+            <rect x="88" y="104" width="22" height="50" rx="10" fill="#3A4079"/>
+            <path d="M98 44c27 0 37 18 37 34 6 3 7 10 2 14-1 16-15 26-33 26-19 0-30-15-30-37 0-22 9-37 24-37z" fill="#4A5192"/>
+            <path d="M114 79q5 3 10 0" fill="none" stroke="#A9ABC9" stroke-width="2.2" stroke-linecap="round"/>
+          </g>
+          <path class="jolt" d="M60 56l-12-5M58 70H45M60 84l-12 5" fill="none" stroke="#FFC86B" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M74 146c0-12 11-17 24-15 12 2 19 8 19 16 0 6-6 9-14 8-9-1-17 0-29 0z" fill="#D6D0EC"/>
+        </svg>
+        <figcaption><b>Ordinary neck pillow</b>Chin drops, you jolt awake.</figcaption>
+      </figure>
+      <figure class="fig fig--hold">
+        <svg viewBox="0 0 220 230" role="img" aria-label="Side view: with The Cozzi a support under the chin keeps the head upright">
+          <rect x="30" y="18" width="40" height="212" rx="16" fill="#2B3064"/>
+          <path d="M68 150c10-12 52-14 72 2l12 78H68z" fill="#3A4079"/>
+          <g class="head">
+            <rect x="88" y="104" width="22" height="50" rx="10" fill="#3A4079"/>
+            <path d="M98 44c27 0 37 18 37 34 6 3 7 10 2 14-1 16-15 26-33 26-19 0-30-15-30-37 0-22 9-37 24-37z" fill="#4A5192"/>
+            <path d="M114 79q5 3 10 0" fill="none" stroke="#A9ABC9" stroke-width="2.2" stroke-linecap="round"/>
+          </g>
+          <path d="M74 146c0-12 11-17 24-15 12 2 19 8 19 16 0 6-6 9-14 8-9-1-17 0-29 0z" fill="#D6D0EC"/>
+          <path d="M108 150c6-9 11-19 18-27 7 0 12 5 11 12-2 10-13 18-23 21z" fill="#D6D0EC" stroke="#FFC86B" stroke-width="1.8" stroke-dasharray="4 3"/>
+        </svg>
+        <figcaption><b>The Cozzi</b>Head stays up.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="horizon" aria-hidden="true"></div>
+
+  <section class="rest" aria-labelledby="rest-title">
+    <h2 id="rest-title">Fixes what people return neck pillows for</h2>
+    <div class="rest__grid">
+      <div class="point">
+        <svg aria-hidden="true"><use href="#i-fit"/></svg>
+        <h3>It fits your neck</h3>
+        <p>One-size pillows ride up to your ears or leave your chin hanging. <span class="slot">Sizes, or how it adjusts</span>.</p>
+      </div>
+      <div class="point">
+        <svg aria-hidden="true"><use href="#i-put"/></svg>
+        <h3>It stays put</h3>
+        <p>No re-wrapping every time you turn your head. <span class="slot">What keeps it in place</span>.</p>
+      </div>
+      <div class="point">
+        <svg aria-hidden="true"><use href="#i-cool"/></svg>
+        <h3>It stays cool</h3>
+        <p>Foam and fleece trap heat on a long flight. <span class="slot">Fabric, and how it breathes</span>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="trial" aria-labelledby="trial-title">
+    <h2 id="trial-title">Try it on a real flight</h2>
+    <p>Sleep on it for <span class="slot">N nights</span>. Wrong size? <span class="slot">Swap it free</span>. Not for you? <span class="slot">Send it back</span>.</p>
+    <p>Ships from <span class="slot">where</span> and reaches US addresses in <span class="slot">N days</span>. <span class="slot">Warranty</span>.</p>
+    <button class="btn-add" type="button" data-add>Add to cart</button>
+  </section>
+
+  <section class="notes" id="notes" aria-labelledby="notes-title">
+    <div class="notes__inner">
+      <h2 id="notes-title">Notes for The Cozzi team</h2>
+      <p class="notes__lede">This is a spec of your first scroll, built to answer your brief: in one scroll a visitor from a Meta ad should know what it is, why it beats other neck pillows, and how to buy. Dashed lines mark facts only you have.</p>
+      <div class="notes__grid">
+        <div>
+          <h3>What buyers complain about</h3>
+          <table class="pains">
+            <thead><tr><th>Complaint about current neck pillows</th><th>Share</th></tr></thead>
+            <tbody>
+              <tr><td>Head still drops<span class="bar" style="--v:23"></span></td><td>23%</td></tr>
+              <tr><td>Doesn't fit their neck<span class="bar" style="--v:18"></span></td><td>18%</td></tr>
+              <tr><td>Slips, needs re-wrapping<span class="bar" style="--v:17"></span></td><td>17%</td></tr>
+              <tr><td>Uncomfortable or too tight<span class="bar" style="--v:16"></span></td><td>16%</td></tr>
+              <tr><td>Not worth the price<span class="bar" style="--v:15"></span></td><td>15%</td></tr>
+              <tr><td>Breaks fast<span class="bar" style="--v:13"></span></td><td>13%</td></tr>
+              <tr><td>Runs hot<span class="bar" style="--v:12"></span></td><td>12%</td></tr>
+            </tbody>
+          </table>
+          <p class="src">From 181 critical and mixed reviews of Trtl, Cabeau and BCOZZY (their stores, Walmart and Amazon), tagged by hand in October 2026. Share is the average across the three brands.</p>
+          <p>The first scroll answers them in order: the headline takes the head drop, the three outlines take fit, staying put and heat, and the trial line takes price and breakage risk. On a phone, all three brands put Add to Cart below the first swipe. Here it sits on the first screen.</p>
+        </div>
+        <div>
+          <h3>What I need from you</h3>
+          <ul>
+            <li>What stops the head dropping, and a close-up of it</li>
+            <li>Sizes, or how it adjusts</li>
+            <li>What keeps it in place</li>
+            <li>Fabric and fill</li>
+            <li>Price for one and for a 2-pack</li>
+            <li>Trial length, return terms and warranty</li>
+            <li>Where it ships from and US delivery time</li>
+            <li>Logo, colors and real photos (shot list below)</li>
+          </ul>
+          <p>If The Cozzi has no chin or front support, the headline switches to fit: "Finally, a neck pillow that fits your neck."</p>
+        </div>
+        <div>
+          <h3>Shot list for your photographer</h3>
+          <ul class="shots">
+            <li><img class="thumb" src="assets/img/hero-wide-480.webp" width="88" height="66" alt="" loading="lazy" decoding="async"><span><b>Hero</b>Side profile in a window seat at night, head upright, the support visible. Shoot 4:5 and 3:2.</span></li>
+            <li><span class="thumb thumb--empty">to shoot</span><span><b>The hold</b>Close-up of the part that stops the drop, worn.</span></li>
+            <li><span class="thumb thumb--empty">to shoot</span><span><b>Fit range</b>Two people, short and long neck, same pillow.</span></li>
+            <li><img class="thumb" src="assets/img/pack-160.webp" width="88" height="66" alt="" loading="lazy" decoding="async"><span><b>Packed</b>In its bag next to a phone, for scale.</span></li>
+            <li><span class="thumb thumb--empty">to shoot</span><span><b>Fabric</b>Macro of the cover in daylight.</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Speed on a phone</h3>
+          <div class="speed" data-speed>
+            <div><strong data-lcp>–</strong><span>Largest paint, mobile</span></div>
+            <div><strong data-cls>–</strong><span>Layout shift</span></div>
+            <div><strong data-kb>–</strong><span>First-view weight</span></div>
+          </div>
+          <p class="src" data-speed-src>Measured with PageSpeed Insights, mobile.</p>
+          <h3 style="margin-top:28px">What's not here, on purpose</h3>
+          <p>No star ratings, review counts, press logos or certifications. You don't have them yet, and invented ones are what make a store look like dropshipping. Real reviews go in once orders come in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer"><p>Spec concept by Luka Skhiladze for The Cozzi. Stand-in photos. Nothing here is sold, and no data is collected.</p></footer>
+
+<div class="sticky-buy" aria-hidden="true">
+  <img src="assets/img/pack-160.webp" width="40" height="40" alt="">
+  <div class="sticky-buy__label"><b>The Cozzi</b><span class="slot" data-price>Your price</span></div>
+  <button class="btn-add" type="button" data-add tabindex="-1">Add to cart</button>
+</div>
+
+<div class="scrim" hidden data-close-cart></div>
+<aside class="cart" id="cart" role="dialog" aria-modal="true" aria-labelledby="cart-title" hidden>
+  <div class="cart__head">
+    <h2 id="cart-title">Your bag</h2>
+    <button class="icon-btn" type="button" data-close-cart aria-label="Close bag"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+  </div>
+  <div class="cart__body">
+    <ul class="cart__items"></ul>
+    <p class="cart__empty" hidden>Your bag is empty.</p>
+    <div class="cart__foot">
+      <p class="cart__total"><span>Subtotal</span><span class="slot">Your price × qty</span></p>
+      <button class="btn-add" type="button" data-checkout>Checkout</button>
+      <p class="cart__note">Shipping and taxes are added at checkout.</p>
+    </div>
+  </div>
+  <div class="cart__end" hidden>
+    <h3>The spec ends here</h3>
+    <p>On your live store this button opens Shopify checkout. Which one-tap wallets show up there (Shop Pay, Apple Pay, PayPal) depends on where the business is registered.</p>
+    <button class="link-btn" type="button" data-back>Back to your bag</button>
+  </div>
+</aside>
+
+<script>
+(function(){
+  var d=document, root=d.documentElement;
+  function $(s,r){return (r||d).querySelector(s)}
+  function $$(s,r){return Array.prototype.slice.call((r||d).querySelectorAll(s))}
+  var NAMES={single:'1 pillow',pair:'2-pack'}, PRICE={single:'Your price',pair:'2-pack price'};
+  var THUMB='assets/img/pack-160.webp';
+  var bag=[], last=null;
+  var form=$('[data-product-form]'), cart=$('#cart'), scrim=$('.scrim'), items=$('.cart__items');
+  function pack(){var c=$('input[name="pack"]:checked',form);return c?c.value:'single'}
+  function count(){return bag.reduce(function(n,i){return n+i.qty},0)}
+  function syncPrice(){$$('[data-price]').forEach(function(el){el.textContent=PRICE[pack()]})}
+  function render(){
+    var n=count(), badge=$('.bag-count');
+    badge.textContent=n; badge.hidden=!n;
+    $('[data-open-cart]').setAttribute('aria-label','Open bag, '+n+(n===1?' item':' items'));
+    items.innerHTML='';
+    bag.forEach(function(it,ix){
+      var li=d.createElement('li'); li.className='line';
+      li.innerHTML='<img src="'+THUMB+'" width="64" height="64" alt=""><div><div class="line__name">The Cozzi travel neck pillow</div><div class="line__meta">'+NAMES[it.pack]+'</div><div class="qty"><button type="button" aria-label="One fewer" data-dec="'+ix+'">−</button><output aria-live="polite">'+it.qty+'</output><button type="button" aria-label="One more" data-inc="'+ix+'">+</button></div></div><span class="line__price slot">'+PRICE[it.pack]+'</span>';
+      items.appendChild(li);
+    });
+    $('.cart__empty').hidden=!!n; $('.cart__foot').hidden=!n;
+  }
+  function add(){var p=pack(),f=bag.filter(function(i){return i.pack===p})[0];if(f)f.qty++;else bag.push({pack:p,qty:1});render();open()}
+  function open(){
+    last=d.activeElement; $('.cart__body').hidden=false; $('.cart__end').hidden=true;
+    cart.hidden=false; scrim.hidden=false; root.classList.add('lock');
+    requestAnimationFrame(function(){cart.classList.add('is-open');scrim.classList.add('is-open')});
+    $('.icon-btn',cart).focus();
+  }
+  function close(){
+    cart.classList.remove('is-open'); scrim.classList.remove('is-open'); root.classList.remove('lock');
+    setTimeout(function(){cart.hidden=true;scrim.hidden=true},260);
+    if(last&&last.focus)last.focus();
+  }
+  form.addEventListener('submit',function(e){e.preventDefault();add()});
+  form.addEventListener('change',syncPrice);
+  $$('[data-add]').forEach(function(b){b.addEventListener('click',add)});
+  $$('[data-open-cart]').forEach(function(b){b.addEventListener('click',function(){render();open()})});
+  $$('[data-close-cart]').forEach(function(b){b.addEventListener('click',close)});
+  items.addEventListener('click',function(e){
+    var t=e.target, i;
+    if(t.hasAttribute('data-inc')){bag[+t.getAttribute('data-inc')].qty++}
+    else if(t.hasAttribute('data-dec')){i=+t.getAttribute('data-dec');if(--bag[i].qty<1)bag.splice(i,1)}
+    else return;
+    render();
+  });
+  $('[data-checkout]').addEventListener('click',function(){$('.cart__body').hidden=true;$('.cart__end').hidden=false;$('[data-back]').focus()});
+  $('[data-back]').addEventListener('click',function(){$('.cart__end').hidden=true;$('.cart__body').hidden=false});
+  d.addEventListener('keydown',function(e){
+    if(cart.hidden)return;
+    if(e.key==='Escape'){close();return}
+    if(e.key==='Tab'){
+      var f=$$('button,[href],input,[tabindex]:not([tabindex="-1"])',cart).filter(function(x){return x.offsetParent!==null});
+      if(!f.length)return;
+      if(e.shiftKey&&d.activeElement===f[0]){e.preventDefault();f[f.length-1].focus()}
+      else if(!e.shiftKey&&d.activeElement===f[f.length-1]){e.preventDefault();f[0].focus()}
+    }
+  });
+  var sticky=$('.sticky-buy'), sBtn=$('button',sticky);
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(en){
+      var on=!en[0].isIntersecting&&en[0].boundingClientRect.top<0;
+      sticky.classList.toggle('is-on',on); sticky.setAttribute('aria-hidden',String(!on)); sBtn.tabIndex=on?0:-1;
+    }).observe($('.btn-add',form));
+  }
+  syncPrice(); render();
+})();
+</script>
+</body>
+</html>
